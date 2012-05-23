@@ -5,7 +5,7 @@ require 'mqtt'
 require 'growl'
 
 Host = 'xx.xx.xx.xx'
-Topic = 'potty1'
+Topic = 'potty/1'
 
 MQTT::Client.connect(Host) do |c|
   c.get(Topic) do |topic,message|
