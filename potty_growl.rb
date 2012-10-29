@@ -4,8 +4,8 @@ require 'rubygems'
 require 'mqtt'
 require 'growl'
 
-Host = 'xx.xx.xx.xx'
-Topic = 'potty/1'
+Host = ENV['MQTT_BROKER']
+Topic = 'potty/2'
 
 MQTT::Client.connect(Host) do |c|
   c.get(Topic) do |topic,message|
