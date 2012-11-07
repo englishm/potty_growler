@@ -2,7 +2,7 @@
 
 require 'rubygems'
 require 'mqtt'
-require 'growl'
+require 'terminal-notifier'
 
 Host = ENV['MQTT_BROKER']
 Topic = 'potty/2'
@@ -11,9 +11,9 @@ MQTT::Client.connect(Host) do |c|
   c.get(Topic) do |topic,message|
       puts "#{topic}: #{message}"
       if message == "O"
-        Growl.notify_ok 'available', :title => 'Potty' 
+        TerminalNotifier.notify('available', :title => 'Potty', :subtitle => 'AOHQ Upstairs')
       elsif message == "X"
-        Growl.notify_error 'occupied', :title => 'Potty'
+        TerminalNotifier.notify('occupied', :title => 'Potty', :subtitle => 'AOHQ Upstairs')
       end
   end
 end

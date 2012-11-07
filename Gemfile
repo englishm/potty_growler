@@ -1,4 +1,4 @@
 source :rubygems
 
 gem 'mqtt'
-gem 'growl'
+gem 'terminal-notifier'
