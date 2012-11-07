@@ -11,9 +11,9 @@ MQTT::Client.connect(Host) do |c|
   c.get(Topic) do |topic,message|
       puts "#{topic}: #{message}"
       if message == "O"
-        TerminalNotifier.notify('available', :title => 'Potty', :subtitle => 'AOHQ Upstairs')
+        TerminalNotifier.notify('available', :title => 'Potty', :subtitle => 'AOHQ Upstairs', :group => Process.pid)
       elsif message == "X"
-        TerminalNotifier.notify('occupied', :title => 'Potty', :subtitle => 'AOHQ Upstairs')
+        TerminalNotifier.notify('occupied', :title => 'Potty', :subtitle => 'AOHQ Upstairs', :group => Process.pid)
       end
   end
 end
